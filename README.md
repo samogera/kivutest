@@ -1,35 +1,50 @@
-# Kivu Resort website (kivutest)
+# Kivu Resort website (test copy)
 
-A redesigned website for **Kivu Resort, Nakuru**: rooms and Msafiri Lodge, restaurant with tap-to-order menu, pool passes, Kids Park, gym, packages, safaris with a trip planner, guest reviews, guest login and a staff dashboard.
+The new website for **Kivu Resort, Nakuru**, built as a multi-page site: rooms and Msafiri Lodge, restaurant with tap-to-order menu, pool, Kids Park, gym, packages, safaris with a trip planner, events, guest reviews, guest login and a staff dashboard.
 
-## Files
-- `index.html` – the site (styles and scripts)
-- `assets/img/` – photos, loaded separately so browsers can cache them and load them lazily
-- `assets/icons/`, `favicon.ico`, `site.webmanifest` – favicon and home-screen icons made from the Kivu flamingo mark
-- `kivu-menu.pdf` – the restaurant menu, linked from the Dine page
+This copy is a **test site**. Every page carries `noindex`, so search engines won't list it. The live version will be www.kivuresort.com.
 
 ## View it
-- Open `index.html` in any browser, or
-- Turn on **GitHub Pages**: Settings → Pages → Source: *Deploy from a branch* → Branch: `main`, folder `/ (root)` → Save. The site appears at `https://samogera.github.io/kivutest/`.
+GitHub Pages: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: the branch holding this build (`claude/compliance-multipage`, or the default branch once this is merged), folder `/ (root)` → Save.**
+After a minute it appears at `https://samogera.github.io/kivutest/`.
+
+## What's in the repo
+| Path | What it is |
+|---|---|
+| `index.html`, `rooms/`, `restaurant/`, `pool/`, … | One folder per page, each with its own title, description and canonical link |
+| `privacy/`, `terms/`, `cancellation/`, `cookies/` | Legal pages (drafts, see below) |
+| `assets/` | Shared stylesheet, script, self-hosted fonts (Inter, SIL Open Font Licence), images (all under 200 KB) and the menu PDF |
+| `signin/`, `register/` and a few others | Redirects from old Kivu website links |
+| `sitemap.xml`, `robots.txt`, `llms.txt`, `404.html` | Search and AI files |
+| `.htaccess`, `nginx-redirects.conf` | 301 redirects and HTTPS rules for the live server |
+| `_build/` | The source and the build script |
+
+Old Kivu website addresses keep working: `/restaurant`, `/pool`, `/contact`, `/msafiri-lodge`, `/tours`, `/kids-park`, `/gallery` and `/gym` are now the new pages, and `/signin` and `/register` go to guest login.
+
+## Rebuild
+Edit `_build/src/site.tpl.html`, then run (needs Python 3 and Pillow):
+
+```
+# test copy on GitHub Pages
+python3 _build/build_site.py --site https://samogera.github.io/kivutest/ --base /kivutest/ --staging --out .
+# live site on www.kivuresort.com
+python3 _build/build_site.py --site https://www.kivuresort.com/ --base / --out dist
+```
+
+`--out .` rebuilds into the repo root and replaces the generated pages; the `_build` folder is kept.
 
 ## What works where
-| Feature | On GitHub Pages / any host | In the Claude preview |
+| Feature | GitHub Pages / any static host | Needs a backend |
 |---|---|---|
-| All pages, design, menu, trip planner, packages | ✅ | ✅ |
-| Bookings, food orders, trip and event requests | Sent to the front desk on WhatsApp | Saved to the booking database |
-| Live availability, staff dashboard, guest login, reviews | ❌ needs a backend | ✅ |
-| AI concierge | Built-in answers | Full AI answers |
+| All pages, menu, trip planner, packages, cookie banner, legal pages | ✅ | |
+| Bookings, orders, trip, event and activity requests | Sent to the front desk on WhatsApp | Saved to a database |
+| Live availability, guest login, reviews, staff dashboard | | ✅ |
+| Automatic M-Pesa (STK push) | | ✅ Safaricom Daraja |
 
-To run bookings, payments, login and the dashboard on kivuresort.com, connect the site to a backend (for example Frappe/ERPNext, Firebase or Supabase) and Safaricom Daraja for automatic M-Pesa.
+## Security
+- Every page sends a Content Security Policy (scripts, styles, fonts and images only from this site; no frames; forms may only go to this site or WhatsApp) and a strict referrer policy.
+- Guest data from the backend is checked before display (`safeRec`, `SAFE_ID`), and all text is escaped.
+- Booking references use 6 random characters and PINs 6 random digits (Web Crypto). Stay records are encrypted with a key derived by PBKDF2, and repeated wrong PINs lock the login for a while.
+- No API keys or passwords are in this repository.
 
-## Security notes
-- Everything guests submit is cleaned before it is shown (ids, status words and numbers are checked, text is escaped), so a guest can't inject code into the staff dashboard or the reviews.
-- Guest logins use a 6-character reference and a 6-digit PIN, both made with the browser's secure random generator. Stay cards are encrypted with AES-GCM using PBKDF2-stretched keys, and login is paused for a minute after 5 wrong tries.
-- A Content-Security-Policy blocks scripts and plugins from other sites.
-- The staff dashboard only checks who is allowed in on the page itself. When you connect a real backend, enforce the same permissions on the server too (for example Firestore security rules).
-
-## Before going live
-- Set real room counts, room rates and the M-Pesa Paybill/Till
-- Replace placeholder social media links (Facebook, Instagram, TikTok, X, YouTube)
-- Confirm gym, Kids Park and package prices, and the safari list and travel times
-- Fix menu PDF typos (matumbo 1 kg price, “Gizzerds”, “Macon”)
+See **GO-LIVE-CHECKLIST.md** before switching www.kivuresort.com over.

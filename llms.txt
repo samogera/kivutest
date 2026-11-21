@@ -1,0 +1,23 @@
+# Kivu Resort, Nakuru
+
+> Garden resort off Flamingo Road, Nakuru, Kenya, a short drive from the main gate of Lake Nakuru National Park. Run by Kivu Hospitality, with Msafiri Lodge in Nakuru town and Kivu Tours.
+
+Contact: +254 726 026 894 (phone and WhatsApp), info@kivuresort.com, safaris: adventuresafaris@kivuresort.com
+Check-in from 1:00 pm, check-out by 10:30 am. Pets are not allowed. Prices are in Kenya shillings (KES).
+
+## Main pages
+- [Rooms and suites](https://samogera.github.io/kivutest/rooms/): executive and standard rooms, self-catering suites, camping and bunks. Breakfast, pools, gym and Wi-Fi included. Room rates are confirmed by the front desk and differ for residents and non-residents.
+- [Msafiri Lodge](https://samogera.github.io/kivutest/msafiri-lodge/): rooms in Nakuru town. Per room per night (KES), bed and breakfast / half board / full board: standard single 3,500 / 4,500 / on request; standard double or twin 5,000 / 7,000 / 9,000; superior single 4,000 / 5,000 / 6,000; superior double or twin 6,000 / 8,000 / 10,000.
+- [Restaurant and menu](https://samogera.github.io/kivutest/restaurant/): Kenyan and continental food, nyama choma, pizza (450 / 750 / 1,200), juices. Orders for dine in, poolside, room service or take away.
+- [Swimming pool](https://samogera.github.io/kivutest/pool/): day pass 500; swimming and training 1,000 per day; club members 850 per day; monthly swimming 5,000; monthly swimming and training for club members 6,500 (10 sessions, extra sessions 350); club registration 1,000; Kenya Aquatics fee 600 per year.
+- [Kids Park](https://samogera.github.io/kivutest/kids-park/): bouncy castles, carousel, trampoline, birthday parties (birthday child free), school and group visits. Prices on request.
+- [Gym](https://samogera.github.io/kivutest/gym/): classes, personal training, guest passes; free for resort guests. Prices on request.
+- [Safaris and trips](https://samogera.github.io/kivutest/tours/): Lake Nakuru National Park, Menengai Crater, Hyrax Hill, Lake Elmenteita, Lake Naivasha, Hell's Gate, Thomson's Falls, Mount Longonot, Lake Bogoria, Lake Baringo, Maasai Mara. Travel times are approximate; quotes on request.
+- [Events](https://samogera.github.io/kivutest/events/): conference rooms, team building and training camps. Quotes on request.
+- [Contact](https://samogera.github.io/kivutest/contact/)
+
+## Policies
+- [Privacy Policy](https://samogera.github.io/kivutest/privacy/)
+- [Terms](https://samogera.github.io/kivutest/terms/)
+- [Cancellation and refunds](https://samogera.github.io/kivutest/cancellation/)
+- [Cookie Policy](https://samogera.github.io/kivutest/cookies/)
