@@ -1,0 +1,3 @@
+# Test copy: please don't index. The live site will be www.kivuresort.com
+User-agent: *
+Disallow: /

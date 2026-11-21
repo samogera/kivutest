@@ -1,0 +1,16 @@
+# Apache (.htaccess): send old Kivu website links to the new pages
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^kivuresort\.com$ [NC]
+RewriteRule ^ https://www.kivuresort.com%{REQUEST_URI} [L,R=301]
+RedirectMatch 301 ^/signin/?$ /mystay/
+RedirectMatch 301 ^/register/?$ /mystay/
+RedirectMatch 301 ^/home/?$ /
+RedirectMatch 301 ^/index\.php/?$ /
+RedirectMatch 301 ^/stay/?$ /rooms/
+RedirectMatch 301 ^/dine/?$ /restaurant/
+RedirectMatch 301 ^/safaris/?$ /tours/
+RedirectMatch 301 ^/kids/?$ /kids-park/
+RedirectMatch 301 ^/msafiri/?$ /msafiri-lodge/
+ErrorDocument 404 /404.html
